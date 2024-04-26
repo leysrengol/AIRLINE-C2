@@ -1,5 +1,7 @@
-import { CrewMember } from "./CrewMember";
+import { Employee } from "./Employee";
+import { Flight } from "./Flight";
 
-class Pilot extends CrewMember{
+class Pilot extends Employee {
+    private flight:Flight;
     
 }

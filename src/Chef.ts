@@ -1,5 +1,5 @@
-import { CrewMember } from "./CrewMember";
+import { Employee } from "./Employee";
 
-class Chef extends CrewMember{
+class Chef extends Employee{
    
 }

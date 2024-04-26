@@ -1,5 +1,5 @@
-import { CrewMember} from "./CrewMember";
+import { Employee} from "./Employee";
 
-class AirlineManager extends CrewMember{
+class AirlineManager extends Employee{
    
 }
