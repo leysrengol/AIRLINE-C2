@@ -1,5 +1,7 @@
 import { Employee} from "./Employee";
 
-class AirlineManager extends Employee{
-   
+export class AirlineManager extends Employee{
+    constructor(salary:string,firstName: string, lastName: string,contactInfo:string){
+        super(salary,firstName, lastName,contactInfo)
+    }
 }

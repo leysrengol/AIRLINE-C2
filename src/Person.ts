@@ -1,8 +1,8 @@
 export abstract class Person{
-    constructor(private firstName: string, private lastName: string, private contecctInFo:string){
+    constructor(private firstName: string, private lastName: string, private contactInFo:string){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.contecctInFo = contecctInFo;
+        this.contactInFo = contactInFo;
     }
     getfirstName(){
         return this.firstName;
@@ -12,7 +12,7 @@ export abstract class Person{
         return this.lastName;
     }
     getcontecctInFo(){
-        return this.contecctInFo;
+        return this.contactInFo;
     }
 }
     

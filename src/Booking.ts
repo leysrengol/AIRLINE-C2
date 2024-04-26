@@ -2,25 +2,32 @@ import { BookingTrips } from "./BookingTrip";
 import { Meal } from "./MealType";
 import { Passanger } from "./Passanger";
 import { Ticket } from "./Ticket";
-import { Bagage } from "./Bagage";
-
+import { Baggage } from "./Baggage";
+import { BookingFlight } from "./BookingFlight";
 
 export class Booking {
-    private passanger: Passanger;
-    private bagager: Bagage[] = [];
-    private meal?:Meal[]
-    private trip:BookingTrips;
-    
-    constructor(private ticket: Ticket){
-        this.ticket = ticket;
-    }
-    getTickets(){
-        return this.ticket;
-    }
-    getMeals(){
-        return this.meal;
-    }
-    getPassangers(){
-        return this.passanger;
-    }
+  private passenger: Passanger;
+  private baggage: Baggage[] = [];
+  private meals?: Meal[] = [];
+  private trip: BookingTrips;
+  private ticket: Ticket;
+  private bookingFlight: BookingFlight;
+
+  constructor(ticket: Ticket, bookingFlight: BookingFlight) {
+    this.ticket = ticket;
+    this.bookingFlight = bookingFlight;
+  }
+
+  public getTicket(): Ticket {
+    return this.ticket;
+
+  }
+  public getBookingFlight(): BookingFlight {
+    return this.bookingFlight;
+  }
+
+  public setBookingFlight(bookingFlight: BookingFlight): void {
+    this.bookingFlight = bookingFlight;
+  }
+
 }
