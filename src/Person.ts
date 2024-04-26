@@ -1,10 +1,9 @@
 import { Gender } from "./Enum";
 export abstract class Person{
-    constructor(private firstName: string, private lastName: string, private contecctInFo:string,private gender:Gender){
+    constructor(private firstName: string, private lastName: string, private contactInFo:string){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.contecctInFo = contecctInFo;
-        this.gender=gender;
+        this.contactInFo = contactInFo;
     }
     getfirstName(){
         return this.firstName;
@@ -14,7 +13,7 @@ export abstract class Person{
         return this.lastName;
     }
     getcontecctInFo(){
-        return this.contecctInFo;
+        return this.contactInFo;
     }
 }
     
