@@ -2,7 +2,7 @@ import { BookingTrips } from "./BookingTrip";
 import { Meal } from "./MealType";
 import { Passanger } from "./Passanger";
 import { Ticket } from "./Ticket";
-import { Bagage } from "./bagage";
+import { Bagage } from "./Bagage";
 
 
 export class Booking {
