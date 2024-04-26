@@ -1,3 +1,4 @@
+import { Gender } from "./Enum";
 export abstract class Person{
     constructor(private firstName: string, private lastName: string, private contactInFo:string){
         this.firstName = firstName;

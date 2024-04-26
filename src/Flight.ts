@@ -1,4 +1,5 @@
 import { Passanger } from "./Passanger";
+import { Pilot } from "./Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
 

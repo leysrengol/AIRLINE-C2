@@ -1,5 +1,6 @@
+
 import { Employee } from "./Employee";
 
-export class Chef extends Employee{
+export class CrewMember extends Employee{
    
 }

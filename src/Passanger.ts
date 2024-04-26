@@ -17,7 +17,7 @@ export class Passanger extends Person {
     ) {
         super(firstName, lastName,contactInFo);
         this.bookings = [];
-        this.airport = airPort;
+        this.airport = this.airport;
     }
 
     public hasReturnTickets(): boolean {
