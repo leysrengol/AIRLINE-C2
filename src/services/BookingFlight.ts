@@ -1,5 +1,5 @@
-import { Flight } from "./Flight";
-import { Seat } from "./Seat";
+import { Flight } from "../models/Flight";
+import { Seat } from "../models/Seat";
 import { Ticket } from "./Ticket";
 
 export class BookingFlight {

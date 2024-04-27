@@ -1,6 +1,6 @@
 import { BookingTrips } from "./BookingTrip";
-import { Meal } from "./MealType";
-import { Passanger } from "./Passanger";
+import { Meal } from "../services/Meal";
+import { Passanger } from "../models/Passanger";
 import { Ticket } from "./Ticket";
 import { Baggage } from "./Baggage";
 import { BookingFlight } from "./BookingFlight";
@@ -29,5 +29,5 @@ export class Booking {
   public setBookingFlight(bookingFlight: BookingFlight): void {
     this.bookingFlight = bookingFlight;
   }
-
+  
 }

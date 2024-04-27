@@ -1,9 +1,9 @@
-import { AirlineManager } from "./AirlineManager";
-import { Chef } from "./Chef";
-import { CrewMember } from "./CrewMember";
-import { Employee } from "./Employee";
-import { Gender } from "./Enum";
-import { Pilot } from "./Pilot";
+import { AirlineManager } from "../controllers/AirlineManager";
+import { Chef } from "../controllers/Chef";
+import { CrewMember } from "../models/CrewMember";
+import { Employee } from "../controllers/Employee";
+import { Gender } from "../enums/Enum";
+import { Pilot } from "../controllers/Pilot";
 
 // let pro = new Employee("bro","cute","478394739",Gender.FEMALE,"2000");
 // console.log(pro);

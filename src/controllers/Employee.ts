@@ -1,5 +1,5 @@
-import { Gender } from "./Enum";
-import { Person } from "./Person";
+import { Gender } from "../enums/Enum";
+import { Person } from "../models/Person";
 
 
 export class Employee extends Person{
