@@ -1,5 +1,5 @@
 import { Employee } from "./Employee";
-import { Flight } from "./Flight";
+import { Flight } from "../models/Flight";
 
 export class Pilot extends Employee {
     private flight:Flight;

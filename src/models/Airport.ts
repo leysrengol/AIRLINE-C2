@@ -1,5 +1,5 @@
 import { Airline } from "./Airline";
-import { AirportController } from "./AirportController";
+import { AirportController } from "../controllers/AirportController";
 
 export class Airport {
   private airline: Airline[];

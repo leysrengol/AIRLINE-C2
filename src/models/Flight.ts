@@ -1,5 +1,5 @@
 import { Passanger } from "./Passanger";
-import { Pilot } from "./Pilot";
+import { Pilot } from "../controllers/Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
 
