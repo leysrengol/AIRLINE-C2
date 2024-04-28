@@ -3,8 +3,8 @@ import { Gender } from "../enums/Enum";
 import { Booking } from "../services/Booking";
 export class AirlineManager extends Employee{
     private employees: Employee[];
-    private bookings: Booking[];
-
+    private bookings: Booking[] = [];
+ 
     constructor(firstName: string, lastName: string, contecctInFo: string,gender: Gender,salary: string){
         super(firstName,lastName, contecctInFo,gender,salary);
         this.employees=[];
@@ -29,14 +29,16 @@ export class AirlineManager extends Employee{
           const ticket = booking.getTicket();
     
           // Check if the flight number matches and the ticket type is return
-          if (ticket.flightNumber === flightNumber && ticket.ticketType === "return") {
+          if (ticket.getFlightNumber() === flightNumber && ticket.getTicketType() === "return") {
             returnPassengerCount++;
           }
         }
     
         return returnPassengerCount;
       }
-
+      addBooking(booking: Booking) {
+        this.bookings.push(booking)
+      }
 
 
 }

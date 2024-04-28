@@ -6,6 +6,7 @@ import { Baggage } from "./Baggage";
 import { BookingFlight } from "./BookingFlight";
 
 export class Booking {
+  private bookingReferenceNumber: string;
   private passenger: Passanger;
   private baggage: Baggage[] = [];
   private meals?: Meal[] = [];
@@ -16,6 +17,7 @@ export class Booking {
   constructor(ticket: Ticket, bookingFlight: BookingFlight) {
     this.ticket = ticket;
     this.bookingFlight = bookingFlight;
+
   }
 
   public getTicket(): Ticket {
