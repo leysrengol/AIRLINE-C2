@@ -9,7 +9,7 @@ import { DateTime } from "../models/DateTime";
 // Create a FlightSchedule instance
 const flightSchedule = new FlightSchedule();
 let date1 = new DateTime("2024-04-28","12:00:00");
-let date2 = new DateTime("2024-04-20","1:20:00");
+let date2 = new DateTime("2024-04-28","1:20:00");
 
 //Create Pilot
 let Pilot1 = new Pilot("Leysreng","OL","leysreng.ol@gmail.com",Gender.FEMALE,"600"); 
