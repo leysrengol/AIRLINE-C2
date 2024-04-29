@@ -2,6 +2,7 @@ import { Gender } from "../enums/Enum";
 import { Airport } from "./Airport";
 import { Booking } from "../services/Booking";
 import { Person } from "./Person";
+import { Gate } from "./Gate";
 
 export class Passanger extends Person {
   private bookings: Booking[];
@@ -36,3 +37,6 @@ export class Passanger extends Person {
     return this.airport;
   }
 }
+// getGate(gate:Gate):string{
+//   return this.gate;
+// }

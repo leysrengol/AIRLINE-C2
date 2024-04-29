@@ -2,11 +2,15 @@ import { Passanger } from "./Passanger";
 import { Pilot } from "../controllers/Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
+import { Gate } from "./Gate";
+import { Airline } from "./Airline";
 
 export class Flight {
   private seats: Seat[] = [];
   private router: Router;
   private passengers: Passanger[];
+  private airline: Airline;
+  private gate: Gate;
 
   constructor(
     private flightNumber: string,
@@ -46,4 +50,10 @@ export class Flight {
 
     return returnTicketPassengerCount;
   }
+
+
+  getGateNumberForFlight(): string | undefined {
+    return this.gate.getGateNumber();
+  }
+  
 }
