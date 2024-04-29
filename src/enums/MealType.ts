@@ -1,4 +1,4 @@
-export enum FoodType {
+export enum MealType {
     Vegetarian = "Vegetarian",
     Vegan = "Vegan",
     GlutenFree = "Gluten-Free",
