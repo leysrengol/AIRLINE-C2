@@ -14,9 +14,11 @@ export class Booking {
   private ticket: Ticket;
   private bookingFlight: BookingFlight;
 
-  constructor(ticket: Ticket, bookingFlight: BookingFlight) {
+  constructor(ticket: Ticket, bookingFlight: BookingFlight,passanger: Passanger,meal?: Meal[]) {
     this.ticket = ticket;
     this.bookingFlight = bookingFlight;
+    this.passenger = passanger;
+    this.meals = meal;
 
   }
 

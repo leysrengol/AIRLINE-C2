@@ -11,24 +11,31 @@ import { AirportController } from "../controllers/AirportController";
 import { AirlineManager } from "../controllers/AirlineManager";
 import { Gender } from "../enums/Enum";
 import { DateTime } from "../models/DateTime";
+import { Pilot } from "../controllers/Pilot";
+import { MealTime } from "../enums/MealTime";
+import { MealType } from "../enums/MealType";
+import { Meal } from "../services/Meal";
 
 const airline = new Airline("Delta Airlines", "delta@delta.com");
 const airportController = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
-const pilot = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
+const pilot = new Pilot("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
 const airport = new Airport("JFK", "John F. Kennedy International Airport", "New York City, NY", airportController);
 let date1 = new DateTime("Monday","2939");
-const flight = new Flight("DL123", "JFK", "LAX", date1);
+const flight = new Flight("DL123", "JFK", "LAX", date1,pilot);
 const seat = new Seat("A1");
 
-const ticket = new Ticket("T123456789", "DL123", "departure",seat );
+
+const ticket = new Ticket("T123456789", "DL123", "return",seat );
 const bookingFlight = new BookingFlight(flight, ticket, seat);
 const passenger = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true);
 
-const booking = new Booking( ticket, bookingFlight);
+const booking = new Booking( ticket, bookingFlight,passenger,[new Meal(MealTime.Breakfast,MealType.Beef)]);
 
 
 const airlineManager = new AirlineManager("Alice", "Smith", "alice.smith@delta.com", Gender.FEMALE, "10000");
 
-airlineManager.addBooking(booking)
-const returnPassengerCount = airlineManager.getReturnPassengerCount("DL123");
-console.log("Return passenger count for flight DL123:", returnPassengerCount);
+// airlineManager.addBooking(booking)
+// const returnPassengerCount = airlineManager.getReturnPassengerCount("DL123");
+// console.log("Return passenger count for flight DL123:", returnPassengerCount);
+console.log(booking);
+
