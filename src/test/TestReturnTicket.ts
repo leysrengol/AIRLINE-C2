@@ -10,13 +10,13 @@ import { BookingFlight } from "../services/BookingFlight";
 import { AirportController } from "../controllers/AirportController";
 import { AirlineManager } from "../controllers/AirlineManager";
 import { Gender } from "../enums/Enum";
+import { DateTime } from "../models/DateTime";
 
 const airline = new Airline("Delta Airlines", "delta@delta.com");
 const airportController = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
 const airport = new Airport("JFK", "John F. Kennedy International Airport", "New York City, NY", airportController);
-
-// Create a Flight
-const flight = new Flight("DL123", "JFK", "LAX",);
+let date1 = new DateTime("Monday","2939");
+const flight = new Flight("DL123", "JFK", "LAX", date1);
 const seat = new Seat("A1");
 
 const ticket = new Ticket("T123456789", "DL123", "departure",seat );
