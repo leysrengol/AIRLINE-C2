@@ -2,21 +2,28 @@ import { Passanger } from "./Passanger";
 import { Pilot } from "../controllers/Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
+import { DateTime } from "./DateTime";
 
 export class Flight {
   private seats: Seat[] = [];
   private router: Router;
   private passengers: Passanger[];
+  private pilot: Pilot;
+
 
   constructor(
     private flightNumber: string,
     private destination: string,
-    private arriveDestination: string
+    private arriveDestination: string,
+    private departureTime:DateTime,
+    pilots:Pilot,
   ) {
     this.flightNumber = flightNumber;
     this.destination = destination;
     this.arriveDestination = arriveDestination;
+    this.departureTime = departureTime;
     this.passengers = [];
+    this.pilot = pilots;
   }
 
   getFlightNumber(): string {
@@ -46,4 +53,11 @@ export class Flight {
 
     return returnTicketPassengerCount;
   }
+  getdepartureTime(): DateTime{
+    return this.departureTime;
+  }
+  getPilots(): Pilot{
+    return this.pilot;
+  }
+
 }
