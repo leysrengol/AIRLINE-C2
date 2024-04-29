@@ -14,6 +14,7 @@ import { DateTime } from "../models/DateTime";
 
 const airline = new Airline("Delta Airlines", "delta@delta.com");
 const airportController = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
+const pilot = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
 const airport = new Airport("JFK", "John F. Kennedy International Airport", "New York City, NY", airportController);
 let date1 = new DateTime("Monday","2939");
 const flight = new Flight("DL123", "JFK", "LAX", date1);
