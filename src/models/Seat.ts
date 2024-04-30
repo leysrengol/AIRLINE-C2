@@ -1,25 +1,30 @@
+import { Passanger } from "./Passanger";
+
 export class Seat {
+    private occupiedBy: Passanger | null;
     private seatNumber: string;
-    private isOccupied: boolean;
 
     constructor(seatNumber: string) {
         this.seatNumber = seatNumber;
-        this.isOccupied = false; // By default, the seat is not occupied
+        this.occupiedBy = null;
     }
 
-    public getSeatNumber(): string {
+    book(passenger: Passanger): boolean {
+        if (!this.isOccupied()) {
+            this.occupiedBy = passenger;
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+    isOccupied(): boolean {
+        return this.occupiedBy !== null;
+    }
+    getSeatNumber(): string {
         return this.seatNumber;
     }
 
-    public isSeatOccupied(): boolean {
-        return this.isOccupied;
-    }
-
-    public occupySeat(): void {
-        this.isOccupied = true;
-    }
-
-    public vacateSeat(): void {
-        this.isOccupied = false;
+    getOccupyingPassenger(): Passanger | null {
+        return this.occupiedBy;
     }
 }
