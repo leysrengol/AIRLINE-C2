@@ -1,5 +1,7 @@
 import { Airline } from "./Airline";
 import { AirportController } from "../controllers/AirportController";
+import { Router } from "./Route";
+import { Flight } from "./Flight";
 
 export class Airport {
   private airline: Airline[];
@@ -7,6 +9,7 @@ export class Airport {
   private airportCode: string;
   private name: string;
   private address: string;
+  private routes: Router[] = [];
 
   constructor(airportCode: string, name: string, address: string,airportManager: AirportController) {
     this.airline = [];
@@ -45,5 +48,17 @@ export class Airport {
 
   public getAirportController(): AirportController {
     return this.airportController;
+  }
+
+  public getRoute():Router[]{
+    return this.routes;
+  }
+
+  public addRoute(route:Router):void{
+    this.routes.push(route);
+  }
+  
+  public getFlights():Flight[]{
+    return [];
   }
 }
