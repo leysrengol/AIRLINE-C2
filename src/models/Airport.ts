@@ -3,7 +3,12 @@ import { AirportController } from "../controllers/AirportController";
 import { Router } from "./Route";
 import { Flight } from "./Flight";
 
+
 export class Airport {
+  getFlightsForGate(arg0: string) {
+      throw new Error("Method not implemented.");
+  }
+  private flights: { [flightNumber: string]: Flight } = {};
   private airline: Airline[];
   private airportController: AirportController;
   private airportCode: string;
@@ -49,7 +54,6 @@ export class Airport {
   public getAirportController(): AirportController {
     return this.airportController;
   }
-
   public getRoute():Router[]{
     return this.routes;
   }
@@ -61,4 +65,33 @@ export class Airport {
   public getFlights():Flight[]{
     return [];
   }
+  addFlight(flight: Flight): void {
+    this.flights[flight.getFlightNumber()] = flight;
+  }
+
+  getFlightByNumber(flightNumber: string): Flight | undefined {
+    return this.flights[flightNumber];
+  }
+
+  assignGateToFlight(flightNumber: string, gate: Gate): void {
+    const flight = this.getFlightByNumber(flightNumber);
+    if (flight) {
+      flight.assignGate(gate);
+    } else {
+      console.log(`Flight ${flightNumber} not found.`);
+    }
+  }
+
+  getGateForFlight(flightNumber: string): Gate | undefined {
+    const flight = this.getFlightByNumber(flightNumber);
+    if (flight) {
+      return flight.getGate();
+    } else {
+      console.log(`Flight ${flightNumber} not found.`);
+      return undefined;
+    }
+  }
+
+
+
 }

@@ -2,14 +2,17 @@ import { Passanger } from "./Passanger";
 import { Pilot } from "../controllers/Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
-import { DateTime } from "./DateTime";
+import { Gate } from "./Gate";
+import { Airline } from "./Airline";
+import { Airport } from "./Airport";
 
 export class Flight {
   private seats: Seat[] = [];
   private router: Router;
   private passengers: Passanger[];
-  private pilot: Pilot;
-
+  private airline: Airline;
+  private airport: Airport;
+  private gate: Gate;
 
   constructor(
     private flightNumber: string,
@@ -29,6 +32,9 @@ export class Flight {
   getFlightNumber(): string {
     return this.flightNumber;
   }
+  getSeats(): Seat[] {
+    return this.seats;
+}
 
   getDestination(): string {
     return this.destination;
