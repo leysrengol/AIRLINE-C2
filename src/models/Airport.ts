@@ -1,7 +1,8 @@
 import { Airline } from "./Airline";
 import { AirportController } from "../controllers/AirportController";
+import { Router } from "./Route";
 import { Flight } from "./Flight";
-import { Gate } from "./Gate";
+
 
 export class Airport {
   getFlightsForGate(arg0: string) {
@@ -13,6 +14,7 @@ export class Airport {
   private airportCode: string;
   private name: string;
   private address: string;
+  private routes: Router[] = [];
 
   constructor(airportCode: string, name: string, address: string,airportManager: AirportController) {
     this.airline = [];
@@ -52,7 +54,17 @@ export class Airport {
   public getAirportController(): AirportController {
     return this.airportController;
   }
+  public getRoute():Router[]{
+    return this.routes;
+  }
 
+  public addRoute(route:Router):void{
+    this.routes.push(route);
+  }
+  
+  public getFlights():Flight[]{
+    return [];
+  }
   addFlight(flight: Flight): void {
     this.flights[flight.getFlightNumber()] = flight;
   }
@@ -79,7 +91,6 @@ export class Airport {
       return undefined;
     }
   }
-
 
 
 
