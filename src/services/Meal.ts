@@ -1,12 +1,15 @@
+import { MealTime } from "../enums/MealTime";
+
 export class Meal {
-    constructor(private name:string, private quantity:number){
+    private mealTime: MealTime;
+    constructor(private name:string, mealTime:MealTime){
         this.name = name;
-        this.quantity = quantity;
-    }
+        this.mealTime = mealTime;
+    }   
     getName():string { 
         return this.name;
     }
-    getQuantity():number{
-        return this.quantity;
+    getMealTime(): MealTime {
+        return this.mealTime;
     }
 }

@@ -2,27 +2,40 @@ import { Passanger } from "./Passanger";
 import { Pilot } from "../controllers/Pilot";
 import { Router } from "./Route";
 import { Seat } from "./Seat";
+<<<<<<< HEAD
 import { Gate } from "./Gate";
 import { Airline } from "./Airline";
 import { Airport } from "./Airport";
+=======
+import { DateTime } from "./DateTime";
+>>>>>>> 8e3fd41e25a975d735ffb5cdbf8ba296cce08af1
 
 export class Flight {
   private seats: Seat[] = [];
   private router: Router;
   private passengers: Passanger[];
+<<<<<<< HEAD
   private airline: Airline;
   private airport: Airport;
   private gate: Gate;
+=======
+  private pilot: Pilot;
+
+>>>>>>> 8e3fd41e25a975d735ffb5cdbf8ba296cce08af1
 
   constructor(
     private flightNumber: string,
     private destination: string,
-    private arriveDestination: string
+    private arriveDestination: string,
+    private departureTime:DateTime,
+    pilots:Pilot,
   ) {
     this.flightNumber = flightNumber;
     this.destination = destination;
     this.arriveDestination = arriveDestination;
+    this.departureTime = departureTime;
     this.passengers = [];
+    this.pilot = pilots;
   }
 
   getFlightNumber(): string {
@@ -55,32 +68,11 @@ export class Flight {
 
     return returnTicketPassengerCount;
   }
-
-  getGate(): Gate | undefined {
-    return this.gate;
+  getdepartureTime(): DateTime{
+    return this.departureTime;
   }
-
-  assignGate(gate: Gate): void {
-    this.gate = gate;
-  }
-
-  addPassanger(passenger: Passanger): void {
-    this.passengers.push(passenger);
-  }
-
-  removePassenger(passenger: Passanger): void {
-    const index = this.passengers.indexOf(passenger);
-    if (index !== -1) {
-      this.passengers.splice(index, 1);
-    }
-  }
-
-  getPassangerCount(): number {
-    return this.passengers.length;
-  }
-  addSeat(seat:Seat):void{
-    this.seats.push(seat);
+  getPilots(): Pilot{
+    return this.pilot;
   }
 
 }
-
