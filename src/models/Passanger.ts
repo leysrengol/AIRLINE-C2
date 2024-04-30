@@ -2,10 +2,12 @@ import { Gender } from "../enums/Enum";
 import { Airport } from "./Airport";
 import { Booking } from "../services/Booking";
 import { Person } from "./Person";
+import { Meal } from "../services/Meal";
 
 export class Passanger extends Person {
   private bookings: Booking[];
   private airport: Airport;
+  private meal: Meal;
 
   constructor(
     firstName: string,
@@ -18,6 +20,7 @@ export class Passanger extends Person {
     super(firstName, lastName, contactInfo, gender);
     this.bookings = [];
     this.airport = airport;
+    
   }
 
   public hasReturnTickets(): boolean {
@@ -35,4 +38,21 @@ export class Passanger extends Person {
   public getAirport(): Airport {
     return this.airport;
   }
+  public addMeal(meal: Meal): void {
+    this.meal = meal;
+  }
+
+  public setMeal(meal: Meal): void {
+    this.meal = meal;
+  }
+
+  public getMeal(): Meal {
+    return this.meal;
+  }
+
+
+  
+
+  
+
 }

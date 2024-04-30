@@ -21,6 +21,9 @@ export class Booking {
     this.meals = meal;
 
   }
+  getPassenger(): Passanger {
+    return this.passenger;
+  }
 
   public getTicket(): Ticket {
     return this.ticket;

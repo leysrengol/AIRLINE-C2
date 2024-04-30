@@ -12,7 +12,6 @@ import { AirlineManager } from "../controllers/AirlineManager";
 import { Gender } from "../enums/Enum";
 import { DateTime } from "../models/DateTime";
 import { Pilot } from "../controllers/Pilot";
-import { MealTime } from "../enums/MealTime";
 import { MealType } from "../enums/MealType";
 import { Meal } from "../services/Meal";
 
@@ -27,9 +26,9 @@ const seat = new Seat("A1");
 
 const ticket = new Ticket("T123456789", "DL123", "return",seat );
 const bookingFlight = new BookingFlight(flight, ticket, seat);
-const passenger = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true);
+const passenger = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true, );
 
-const booking = new Booking( ticket, bookingFlight,passenger,[new Meal(MealTime.Breakfast,MealType.Beef)]);
+const booking = new Booking( ticket, bookingFlight,passenger);
 
 
 const airlineManager = new AirlineManager("Alice", "Smith", "alice.smith@delta.com", Gender.FEMALE, "10000");

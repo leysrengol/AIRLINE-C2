@@ -15,8 +15,8 @@ export class Flight {
     private flightNumber: string,
     private destination: string,
     private arriveDestination: string,
-    private departureTime:DateTime,
-    pilots:Pilot,
+    private departureTime: DateTime,
+    pilots: Pilot,
   ) {
     this.flightNumber = flightNumber;
     this.destination = destination;
@@ -24,6 +24,14 @@ export class Flight {
     this.departureTime = departureTime;
     this.passengers = [];
     this.pilot = pilots;
+  }
+
+  public addPassenger(passenger: Passanger): void {
+    this.passengers.push(passenger);
+  }
+
+  public getPassengers(): Passanger[] {
+    return this.passengers;
   }
 
   getFlightNumber(): string {
@@ -38,9 +46,7 @@ export class Flight {
     return this.arriveDestination;
   }
 
-  addPassenger(passenger: Passanger): void {
-    this.passengers.push(passenger);
-  }
+
 
   getReturnTicketPassengerCount(): number {
     let returnTicketPassengerCount = 0;
@@ -53,11 +59,13 @@ export class Flight {
 
     return returnTicketPassengerCount;
   }
-  getdepartureTime(): DateTime{
+  getdepartureTime(): DateTime {
     return this.departureTime;
   }
-  getPilots(): Pilot{
+  getPilots(): Pilot {
     return this.pilot;
   }
+  
+ 
 
 }

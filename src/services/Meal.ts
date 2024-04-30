@@ -1,17 +1,25 @@
-import { MealTime } from "../enums/MealTime";
 import { MealType } from "../enums/MealType";
 
 export class Meal {
-    private mealTime: MealTime;
-    private mealType:MealType
-    constructor( mealTime:MealTime, mealType:MealType){
-        this.mealType = mealType;
-        this.mealTime = mealTime;
-    }   
-    getName():string { 
+    constructor(private mealType: MealType) {}
+
+    public getName(): MealType {
         return this.mealType;
     }
-    getMealTime(): MealTime {
-        return this.mealTime;
+
+    getMealType(): MealType {
+        return this.mealType;
     }
+
+    public static getNameCount(meals: Meal[], targetMealType: MealType): number {
+        let count = 0;
+        for (const meal of meals) {
+            if (meal.getName() === targetMealType) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
 }
+
