@@ -29,7 +29,7 @@ export class AirlineManager extends Employee{
           const ticket = booking.getTicket();
     
           // Check if the flight number matches and the ticket type is return
-          if (ticket.getFlightNumber() === flightNumber && ticket.getTicketType() === "return") {
+          if (ticket.getFlightNumber() === flightNumber && ticket.getReturnTicket()) {
             returnPassengerCount++;
           }
         }

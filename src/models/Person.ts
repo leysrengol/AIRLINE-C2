@@ -6,8 +6,8 @@ export abstract class Person{
         this.contactInFo = contactInFo;
         this.gender = gender;
     }
-    getfirstName(){
-        return this.firstName;
+    getFullName(){
+        return this.firstName+'  '+ this.lastName;
     }
 
     getlastname(){
