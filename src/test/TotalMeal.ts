@@ -1,69 +1,42 @@
-import { Flight } from '../models/Flight';
-import { Passanger } from '../models/Passanger';
-import { Meal } from '../services/Meal';
-import { MealTime } from '../enums/MealTime';
-import {FoodType } from '../enums/MealType';
-import { Gender } from '../enums/Enum';
-import { Airport } from '../models/Airport';
-import { AirportController } from '../controllers/AirportController';
-import { Chef } from '../controllers/Chef';
+import { AirportController } from "../controllers/AirportController";
+import { Chef } from "../controllers/Chef";
+import { Gender } from "../enums/Enum";
+import { Airport } from "../models/Airport";
+import { Flight } from "../models/Flight";
+import { Passanger } from "../models/Passanger";
+import { Pilot } from "../controllers/Pilot"; // Import Pilot class
+import { Meal } from "../services/Meal"; // Import Meal class
+import { MealType } from "../enums/MealType";
+import { DateTime } from "../models/DateTime";
 
-// Create a new flight instance
-const flight = new Flight("NYL123", "New York", "London");
+// Create a Pilot object
+const pilot = new Pilot("John", "Doe", "john@example.com", Gender.MALE, "5000");
+
+// Create Meal objects with meal details
+const meal1 = new Meal(MealType.Chicken);
+const meal2 = new Meal(MealType.Beef);
+// Assuming you have already instantiated a Chef object
+const chef = new Chef("John", "Doe", "john@example.com", Gender.MALE, "5000");
+
+// Create an Airport object
 const airportController = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
 const airport = new Airport("JFK", "John F. Kennedy International Airport", "New York City, NY", airportController);
 
-// Create some passengers with their meal preferences
-const passanger1 = new Passanger("Alice", "Smith", "alice@example.com", Gender.FEMALE, airport, true);
-const passanger2 = new Passanger("Bob", "Johnson", "bob@example.com", Gender.MALE, airport, true);
-const passanger3 = new Passanger("Charlie", "Brown", "charlie@example.com", Gender.MALE, airport, false);
-const passanger4 = new Passanger("David", "Lee", "david@example.com", Gender.MALE, airport, false);
-const passanger5 = new Passanger("Eve", "Wilson", "eve@example.com", Gender.FEMALE, airport, true);
+let date1 = new DateTime("Monday","2939");
+const flight = new Flight("DL123", "JFK", "LAX", date1,pilot);// Provide departure time
 
-// Add passengers to the flight
-flight.addPassenger(passanger1);
-flight.addPassenger(passanger2);
-flight.addPassenger(passanger3);
-flight.addPassenger(passanger4);
-flight.addPassenger(passanger5);
+const passenger1 = new Passanger("John", "Doe", "068402014", Gender.MALE, airport, true);
+const passenger2 = new Passanger("Jane", "Smith", "068402015", Gender.FEMALE, airport, true);
+passenger1.addMeal(meal1);
+passenger2.addMeal(meal2);
 
-// Create some meals for the flight
-const meal1 = new Meal(FoodType.Vegetarian, MealTime.Morning);
-const meal2 = new Meal(FoodType.Vegan, MealTime.Morning);
-const meal3 = new Meal(FoodType.GlutenFree, MealTime.Morning);
-const meal4 = new Meal(FoodType.NutFree, MealTime.Afternoon);
-const meal5 = new Meal(FoodType.Seafood, MealTime.Dinner);
-
-// Add meals to the flight
-flight.addMeal(meal1);
-flight.addMeal(meal2);
-flight.addMeal(meal1);
-flight.addMeal(meal4);
-flight.addMeal(meal5);
-// console.log("Total Vegetarian Meals:", flight.getTotalMealQuantity(FoodType.Vegetarian));
-// console.log("Total Vegan Meals:", flight.getTotalMealQuantity(FoodType.Vegan));
-// console.log("Total Gluten-Free Meals:", flight.getTotalMealQuantity(FoodType.GlutenFree));
-// console.log("Total Nut-Free Meals:", flight.getTotalMealQuantity(FoodType.NutFree));
-// console.log("Total Seafood Meals:", flight.getTotalMealQuantity(FoodType.Seafood));
-
-let chef = new Chef("bro", "tomo", "er9093", Gender.FEMALE, "34983");
-// console.log(chef);
-
-// Example usage:
-const totalVegetarianMorningMeals = flight.getTotalMealQuantity(FoodType.Vegetarian, MealTime.Morning);
-console.log("Total Vegetarian Morning Meals:", totalVegetarianMorningMeals);
+flight.addPassenger(passenger1);
+flight.addPassenger(passenger2);
 
 
-// {morning:[
-//     MealType.Vegetarian,
-//     MealType.Vegan
-    
-// ],
-// lunch:[MealType.Vegetarian,
-//     MealType.Vegan],
-// dinner:[MealType.Vegetarian,
-//     MealType.Vegan],
-//    snake:[MealType.Vegetarian,
-//     MealType.Vegan,]
+// Call the getMealCountForFlight method to get the total meal count for the flight
+const totalMealCount = chef.getMealCountForFlight(flight);
 
-// }
+console.log("Total meal count for the flight " + flight.getFlightNumber() + " :", totalMealCount);
+console.log(`${meal1.getName()}: ${totalMealCount}`);
+console.log(`${meal2.getName()}: ${totalMealCount}`);

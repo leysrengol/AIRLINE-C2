@@ -2,6 +2,7 @@ import { Gender } from "../enums/Enum";
 import { Airport } from "./Airport";
 import { Booking } from "../services/Booking";
 import { Person } from "./Person";
+import { Meal } from "../services/Meal";
 import { Gate } from "./Gate";
 import { BookingFlight } from "../services/BookingFlight";
 import { Flight } from "./Flight";
@@ -10,6 +11,7 @@ import { Seat } from "./Seat";
 export class Passanger extends Person {
   private bookings: Booking[];
   private airport: Airport;
+  private meal: Meal;
   private bookingFlight?: Flight;
   bookedFlight: Flight;
   
@@ -25,6 +27,7 @@ export class Passanger extends Person {
     super(firstName, lastName, contactInfo, gender);
     this.bookings = [];
     this.airport = airport;
+    
   }
 
   
@@ -42,6 +45,16 @@ export class Passanger extends Person {
 
   public getAirport(): Airport {
     return this.airport;
+  }
+  public addMeal(meal: Meal): void {
+    this.meal = meal;
+  }
+  public setMeal(meal: Meal): void {
+    this.meal = meal;
+  }
+
+  public getMeal(): Meal {
+    return this.meal;
   }
 
   bookFlight(flight: Flight): void {

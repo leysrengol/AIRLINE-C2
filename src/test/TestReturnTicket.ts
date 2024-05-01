@@ -12,6 +12,8 @@ import { AirlineManager } from "../controllers/AirlineManager";
 import { Gender } from "../enums/Enum";
 import { DateTime } from "../models/DateTime";
 import { Pilot } from "../controllers/Pilot";
+import { MealType } from "../enums/MealType";
+import { Meal } from "../services/Meal";
 import { DepartureTicket } from "../services/Departure";
 import { ReturnTicket } from "../services/ReturnTicket";
 
@@ -29,10 +31,16 @@ const ticket = new Ticket("T123456789", "DL123",departure,seat,returns);
 const bookingFlight = new BookingFlight(flight, ticket, seat);
 const passenger = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true);
 
-const booking = new Booking( ticket, bookingFlight);
+// const ticket = new Ticket("T123456789", "DL123", "return",seat );
+// const bookingFlight = new BookingFlight(flight, ticket, seat);
+// const passenger = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true, );
+
+const booking = new Booking( ticket, bookingFlight,passenger);
 
 const airlineManager = new AirlineManager("Alice", "Smith", "alice.smith@delta.com", Gender.FEMALE, "10000");
 
 airlineManager.addBooking(booking)
 const returnPassengerCount = airlineManager.getReturnPassengerCount("DL123");
 console.log("Return passenger count for flight DL123:", returnPassengerCount);
+// console.log(booking);
+
