@@ -5,6 +5,7 @@ import { Seat } from "./Seat";
 import { Gate } from "./Gate";
 import { Airline } from "./Airline";
 import { Airport } from "./Airport";
+import { DateTime } from "./DateTime";
 
 export class Flight {
   private seats: Seat[] = [];
@@ -13,6 +14,7 @@ export class Flight {
   private airline: Airline;
   private airport: Airport;
   private gate: Gate;
+  pilot:Pilot;
 
   constructor(
     private flightNumber: string,
@@ -62,8 +64,27 @@ export class Flight {
   getdepartureTime(): DateTime{
     return this.departureTime;
   }
+  assignGate(gate: Gate): void {
+    this.gate = gate;
+  }
   getPilots(): Pilot{
     return this.pilot;
+  }
+  getGate(): Gate | undefined {
+    return this.gate;
+  }
+  removePassenger(passenger: Passanger): void {
+    const index = this.passengers.indexOf(passenger);
+    if (index !== -1) {
+      this.passengers.splice(index, 1);
+    }
+  }
+
+  getPassangerCount(): number {
+    return this.passengers.length;
+  }
+  addSeat(seat:Seat):void{
+    this.seats.push(seat);
   }
 
 }
