@@ -1,30 +1,20 @@
 import { BookingTrips } from "./BookingTrip";
-import { Meal } from "../services/Meal";
 import { Passanger } from "../models/Passanger";
 import { Ticket } from "./Ticket";
-import { Baggage } from "./Baggage";
 import { BookingFlight } from "./BookingFlight";
 
 export class Booking {
   private bookingReferenceNumber: string;
-  private passenger: Passanger;
-  private baggage: Baggage[] = [];
-  private meals?: Meal[] = [];
   private trip: BookingTrips;
   private ticket: Ticket;
   private bookingFlight: BookingFlight;
 
-  constructor(ticket: Ticket, bookingFlight: BookingFlight,passanger: Passanger,meal?: Meal[]) {
+  constructor(bookingReference:string,ticket: Ticket, bookingFlight: BookingFlight,trip:BookingTrips) {
+    this.bookingReferenceNumber = bookingReference;
     this.ticket = ticket;
     this.bookingFlight = bookingFlight;
-    this.passenger = passanger;
-    this.meals = meal;
-
+    this.trip = trip;
   }
-  getPassenger(): Passanger {
-    return this.passenger;
-  }
-
   public getTicket(): Ticket {
     return this.ticket;
 

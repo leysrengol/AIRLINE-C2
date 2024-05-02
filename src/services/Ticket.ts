@@ -1,16 +1,13 @@
 import { Seat } from "../models/Seat"
-import { DepartureTicket } from "./Departure";
-import { ReturnTicket } from "./ReturnTicket";
-// import {}
 
 export class Ticket {
     private ticketNumber: string;
     private flightNumber: string;
-    private departure : DepartureTicket;
-    private returnTicket ?: ReturnTicket;
+    private departure : boolean;
+    private returnTicket :boolean;
     private seat: Seat;
 
-    constructor(ticketNumber: string, flightNumber: string, departure: DepartureTicket, seat: Seat,returns?:ReturnTicket) {
+    constructor(ticketNumber: string, flightNumber: string, departure: boolean, seat: Seat,returns: boolean ){
         this.ticketNumber = ticketNumber;
         this.flightNumber = flightNumber;
         this.departure = departure;
@@ -26,10 +23,10 @@ export class Ticket {
         return this.flightNumber;
     }
 
-    public getDepartureTicket(): DepartureTicket {
+    public getDepartureTicket(): boolean {
         return this.departure;
     }
-    public getReturnTicket(): ReturnTicket {
+    public getReturnTicket(): boolean {
         return this.returnTicket;
     }
 

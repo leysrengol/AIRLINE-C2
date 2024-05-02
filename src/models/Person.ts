@@ -9,6 +9,9 @@ export abstract class Person{
     getFullName(){
         return this.firstName+'  '+ this.lastName;
     }
+    getFirstName(){
+        return this.firstName;
+    }
 
     getlastname(){
         return this.lastName;

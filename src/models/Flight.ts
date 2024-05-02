@@ -21,12 +21,14 @@ export class Flight {
     private destination: string,
     private arriveDestination: string,
     private departureTime: DateTime,
+    // private arrivalTime: DateTime,
     pilots: Pilot,
   ) {
     this.flightNumber = flightNumber;
     this.destination = destination;
     this.arriveDestination = arriveDestination;
     this.departureTime = departureTime;
+    // this.arrivalTime = arrivalTime;
     this.passengers = [];
     this.pilot = pilots;
   }
@@ -70,6 +72,9 @@ export class Flight {
   getdepartureTime(): DateTime {
     return this.departureTime;
   }
+  // getArrivalTime(): DateTime {
+  //   return this.arrivalTime;
+  // }
   assignGate(gate: Gate): void {
     this.gate = gate;
   }
