@@ -3,4 +3,11 @@ export class Baggage {
         this.bagNumber = bagNumber;
         this.weight = weight;
     }
+    getBagNumber(){
+        return this.bagNumber;
+    }
+    getWeight(){
+    
+        return this.weight;
+    }
 }

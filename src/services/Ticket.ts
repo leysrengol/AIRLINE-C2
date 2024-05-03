@@ -7,11 +7,10 @@ export class Ticket {
     private returnTicket :boolean;
     private seat: Seat;
 
-    constructor(ticketNumber: string, flightNumber: string, departure: boolean, seat: Seat,returns: boolean ){
+    constructor(ticketNumber: string, flightNumber: string, departure: boolean,returns: boolean ){
         this.ticketNumber = ticketNumber;
         this.flightNumber = flightNumber;
         this.departure = departure;
-        this.seat = seat;
         this.returnTicket = returns;
     }
 
@@ -22,7 +21,7 @@ export class Ticket {
     public getFlightNumber(): string {
         return this.flightNumber;
     }
-
+ 
     public getDepartureTicket(): boolean {
         return this.departure;
     }

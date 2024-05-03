@@ -10,7 +10,7 @@ export class Booking {
   private bookingFlight: BookingFlight;
   private passengers: Passanger[];
 
-  constructor(bookingReference: string, ticket: Ticket, bookingFlight: BookingFlight, trip: BookingTrips, passengers: Passanger[]) {
+  constructor(bookingReference: string, ticket: Ticket, bookingFlight: BookingFlight, trip: BookingTrips,  passengers: Passanger[]) {
     this.bookingReferenceNumber = bookingReference;
     this.ticket = ticket;
     this.bookingFlight = bookingFlight;

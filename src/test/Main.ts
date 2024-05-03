@@ -41,9 +41,9 @@ const flight2 = new Flight("FL456","Japance","switzerland",date2,pilot2,route1);
 
 const passenger1 = new Passanger("John","haha","068402014", Gender.MALE,airport,true);
 const seat = new Seat("A1");
-const ticket = new Ticket("T123456789", "DL123",true,seat,true);
+const ticket = new Ticket("T123456789", "DL123",true,true);
 const bookingFlight = new BookingFlight(flight1, ticket, seat,[],false);
-const trip = new BookingTrips("01","Cambodua","Japan",new Date("20240-2-02,15:00"),new Date("2024-03-02,15:00"))
+const trip = new BookingTrips("01","Cambodua","Japan",new DateTime("20240-2-02","15:00"),new DateTime("2024-03-02","15:00"))
 const passenger2 = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true);
 
 const booking = new Booking( "001",ticket, bookingFlight,trip,[]);
@@ -137,8 +137,6 @@ booking.addpassenger(passenger1);
 passenger1.addBooking(booking);
 airportController.addBooking(booking);
 console.log(airportController.getPassengerDetail("John"));
-console.log(ticket.getSeat());
-
 
 // Fight Route
 passenger1.addBaggges(bags1);

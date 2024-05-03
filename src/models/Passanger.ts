@@ -39,7 +39,7 @@ export class Passanger extends Person {
     this.bookings.push(booking);
   }
 
-  public getBookings(): Booking[] {
+  public getBookings():Booking[] {
     return this.bookings;
   }
 

@@ -8,10 +8,10 @@ export class BookingFlight {
   private flight: Flight;
   private ticket: Ticket;
   private seat: Seat;
-  private baggage:boolean = false;
+  private baggage?:string | boolean;
   private meals?: Meal[] = [];
 
-  constructor(flight: Flight, ticket: Ticket, seat: Seat,meal?: Meal[],bagge?:boolean) {
+  constructor(flight: Flight, ticket: Ticket, seat: Seat,meal?: Meal[],bagge?:string | boolean) {
     this.flight = flight;
     this.ticket = ticket;
     this.seat = seat;
@@ -34,10 +34,6 @@ export class BookingFlight {
 
   public setFlight(flight: Flight): void {
     this.flight = flight;
-  }
-
-  public setTicket(ticket: Ticket): void {
-    this.ticket = ticket;
   }
 
   public setSeat(seat: Seat): void {
