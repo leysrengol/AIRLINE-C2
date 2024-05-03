@@ -8,7 +8,7 @@ export class BookingFlight {
   private flight: Flight;
   private ticket: Ticket;
   private seat: Seat;
-  private baggage:boolean | string;
+  private baggage:boolean = false;
   private meals?: Meal[] = [];
 
   constructor(flight: Flight, ticket: Ticket, seat: Seat,meal?: Meal[],bagge?:boolean) {

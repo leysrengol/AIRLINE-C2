@@ -18,6 +18,8 @@ import { MealType } from "../enums/MealType";
 import { Gate } from "../models/Gate";
 import { Airplane } from "../models/Airplan";
 import { BookingTrips } from "../services/BookingTrip";
+import { Route } from "../models/Route";
+import { Baggage } from "../services/Baggage";
 
 
 const airportController = new AirportController("John", "Doe", "john.doe@example.com", Gender.MALE, "5000");
@@ -33,33 +35,39 @@ let pilot2 = new Pilot("Liza","OL","liza.ol@gmail.com",Gender.FEMALE,"600");
 let crewmember = new CrewMember("Bopha", "San", "bopha.san@example.com", Gender.MALE, "3000");
 let chef = new Chef("Sokha", "Sok", "sokha.sok@example.com", Gender.MALE, "4000");
 
-const flight1 = new Flight("FL123","Cambodia","US",date1,pilot1);
-const flight2 = new Flight("FL456","Japance","switzerland",date2,pilot2);
+let route1 = new Route("CAMBODIA","USA");
+const flight1 = new Flight("FL123","Cambodia","US",date1,pilot1,route1);
+const flight2 = new Flight("FL456","Japance","switzerland",date2,pilot2,route1);
 
 const passenger1 = new Passanger("John","haha","068402014", Gender.MALE,airport,true);
 const seat = new Seat("A1");
 const ticket = new Ticket("T123456789", "DL123",true,seat,true);
-const bookingFlight = new BookingFlight(flight1, ticket, seat);
+const bookingFlight = new BookingFlight(flight1, ticket, seat,[],false);
 const trip = new BookingTrips("01","Cambodua","Japan",new Date("20240-2-02,15:00"),new Date("2024-03-02,15:00"))
 const passenger2 = new Passanger("John Doe","haha","068402014", Gender.MALE,airport,true);
 
-const booking = new Booking( "001",ticket, bookingFlight,trip);
+const booking = new Booking( "001",ticket, bookingFlight,trip,[]);
 
 const meal1 = new Meal(MealType.Chicken);
 const meal2 = new Meal(MealType.Beef);
 
-const gateA = new Gate("FL123");
-const gateB = new Gate("FL456");
+const gateA = new Gate("A111");
+const gateB = new Gate("A222");
 
 let airplan1 = new Airplane("A005")
 
 let seat1 = new Seat("A13");
 let seat2 = new Seat("A15");
 
+let bags1 = new Baggage("A001","15");
+
 
 // AIRPORT GATE
+airport.addFlight(flight1);
+airport.addFlight(flight2);
 airport.assignGateToFlight("FL123", gateA);
 airport.assignGateToFlight("FL456", gateB);
+// console.log(airport.assignGateToFlight("FL456", gateB));
 
 
 //  GET ALL EMPLOYEE SALARY
@@ -87,6 +95,10 @@ flight1.addSeat(seat1);
 flight1.addSeat(seat2);
 console.log(airplan1.getAvailableSeats(flight1));
 console.log(airplan1.checkSeat(seat1));
+console.log(M1);
+console.log(M2);
+
+
 
 
 // PASSENGER HAS RETURN TICKET
@@ -117,13 +129,21 @@ if (gateForFlight1) {
 
 
 // PASSENGER CANCLE TICKET
-// passenger1.bookFlight(flight1);
-// passenger2.bookFlight(flight1);
 console.log(`Passenger count for Flight 1: ${flight1.getPassangerCount()}`); // Output: 2
 
 passenger1.cancelFlight();
 console.log(`Passenger count for Flight 1 after cancellation: ${flight1.getPassangerCount()}`);
+booking.addpassenger(passenger1);
 passenger1.addBooking(booking);
-airportController.addBookings(booking);
-console.log(airportController.getBookingAndPassengerByPassengerName("John"));
-console.log(passenger1.getFirstName());
+airportController.addBooking(booking);
+console.log(airportController.getPassengerDetail("John"));
+console.log(ticket.getSeat());
+
+
+// Fight Route
+passenger1.addBaggges(bags1);
+// console.log(passenger1);
+
+
+
+

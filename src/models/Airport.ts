@@ -22,16 +22,8 @@ export class Airport {
     this.airportController = airportManager;
   }
 
-  public getAirportCode(): string {
-    return this.airportCode;
-  }
-
   public getName(): string {
     return this.name;
-  }
-
-  public getAddress(): string {
-    return this.address;
   }
 
   public getAirlines(): Airline[] {

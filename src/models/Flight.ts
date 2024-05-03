@@ -1,6 +1,6 @@
 import { Passanger } from "./Passanger";
 import { Pilot } from "../controllers/Pilot";
-import { Router } from "./Route";
+import { Route } from "./Route";
 import { Seat } from "./Seat";
 import { Gate } from "./Gate";
 import { Airline } from "./Airline";
@@ -9,7 +9,7 @@ import { DateTime } from "./DateTime";
 
 export class Flight {
   private seats: Seat[] = [];
-  private router: Router;
+  private route: Route;
   private passengers: Passanger[];
   private airline: Airline;
   private airport: Airport;
@@ -23,6 +23,7 @@ export class Flight {
     private departureTime: DateTime,
     // private arrivalTime: DateTime,
     pilots: Pilot,
+    route: Route
   ) {
     this.flightNumber = flightNumber;
     this.destination = destination;
@@ -31,6 +32,7 @@ export class Flight {
     // this.arrivalTime = arrivalTime;
     this.passengers = [];
     this.pilot = pilots;
+    this.route = route;
   }
 
   public addPassenger(passenger: Passanger): void {
@@ -55,8 +57,6 @@ export class Flight {
   getArriveDestination(): string {
     return this.arriveDestination;
   }
-
-
 
   getReturnTicketPassengerCount(): number {
     let returnTicketPassengerCount = 0;

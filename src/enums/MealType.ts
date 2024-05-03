@@ -1,5 +1,4 @@
 export enum MealType {
-    Vegetarian = "Vegetarian",
     Vegan = "Vegan",
     GlutenFree = "Gluten-Free",
     DairyFree = "Dairy-Free",
