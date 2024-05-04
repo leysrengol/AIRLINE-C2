@@ -90,58 +90,57 @@ console.log("Number of flights for the pilot:", numberOfFlights);
 pilot1.getFlights('Jane Doe')
 
 // // PASSENGER BOOKED SEAT
-// let M1 = passenger1.bookSeat(seat1);
-// let M2 = passenger2.bookSeat(seat1);
-// flight1.addSeat(seat1);
-// flight1.addSeat(seat2);
-// console.log(airplan1.getAvailableSeats(flight1));
-// console.log(airplan1.checkSeat(seat1));
-// console.log(M1);
-// console.log(M2);
+let M1 = passenger1.bookSeat(seat1);
+let M2 = passenger2.bookSeat(seat1);
+flight1.addSeat(seat1);
+flight1.addSeat(seat2);
+console.log(airplan1.getAvailableSeats(flight1));
+console.log(airplan1.checkSeat(seat1));
+console.log(M1);
+console.log(M2);
 
 
 
 
 // // PASSENGER HAS RETURN TICKET
-// airlinemanager.addBooking(booking)
-// const returnPassengerCount = airlinemanager.getReturnPassengerCount("DL123");
-// console.log("Return passenger count for flight DL123:", returnPassengerCount);
+airlinemanager.addBooking(booking)
+const returnPassengerCount = airlinemanager.getReturnPassengerCount("DL123");
+console.log("Return passenger count for flight DL123:", returnPassengerCount);
 
 
 // // PASSENGER LIST IN A FLIGHT
-// flight1.addPassenger(passenger1);
-// flight1.addPassenger(passenger2);
+flight1.addPassenger(passenger1);
+flight1.addPassenger(passenger2);
 
 
 // // TOTAL MEAL FOR CHEF
-// passenger1.addMeal(meal1);
-// passenger2.addMeal(meal2);
-// const totalMealCount = chef.getMealCountForFlight(flight1);
-// console.log("Total meal count for the flight " + flight1.getFlightNumber() + " :", totalMealCount);
-// console.log(`${meal1.getName()}: ${totalMealCount}`);
-// console.log(`${meal2.getName()}: ${totalMealCount}`);
+passenger1.addMeal(meal1);
+passenger2.addMeal(meal2);
+const totalMealCount = chef.getMealCountForFlight(flight1);
+console.log("Total meal count for the flight " + flight1.getFlightNumber() + " :", totalMealCount);
+console.log(`${meal1.getName()}: ${totalMealCount}`);
+console.log(`${meal2.getName()}: ${totalMealCount}`);
 
 
 // // PASSENGER GATE
-// const gateForFlight1 = airport.getGateForFlight("FL123");
-// if (gateForFlight1) {
-//   console.log(`Your plan is waiting at Gate ${gateForFlight1.getGateNumber()}`);
-// }
+const gateForFlight1 = airport.getGateForFlight("FL123");
+if (gateForFlight1) {
+  console.log(`Your plan is waiting at Gate ${gateForFlight1.getGateNumber()}`);
+}
 
 
 // // PASSENGER CANCLE TICKET
-// console.log(`Passenger count for Flight 1: ${flight1.getPassangerCount()}`); // Output: 2
+console.log(`Passenger count for Flight 1: ${flight1.getPassangerCount()}`); // Output: 2
+passenger1.cancelFlight();
+console.log(`Passenger count for Flight 1 after cancellation: ${flight1.getPassangerCount()}`);
+booking.addpassenger(passenger1);
+passenger1.addBooking(booking);
+airportController.addBooking(booking);
+console.log(airportController.getPassengerDetail("John"));
 
-// passenger1.cancelFlight();
-// console.log(`Passenger count for Flight 1 after cancellation: ${flight1.getPassangerCount()}`);
-// booking.addpassenger(passenger1);
-// passenger1.addBooking(booking);
-// airportController.addBooking(booking);
-// console.log(airportController.getPassengerDetail("John"));
-
-// // Fight Route
-// passenger1.addBaggges(bags1);
-// // console.log(passenger1);
+// // Bagge
+passenger1.addBaggges(bags1);
+console.log(passenger1);
 
 
 
