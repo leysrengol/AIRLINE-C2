@@ -14,13 +14,19 @@ export class Pilot extends Employee {
     getFlight():Flight[]{
         return this.flights;
     }
-    getNumberofFligtForDate(date: string): number {
+    getNumberofFligtForDate(date: string,names : string): number {
         const flightsForDate = this.flights.filter(flight => {
-            // Check if the flight's date matches the given date
-            return flight.getdepartureTime().getDate() === date;
+            return flight.getdepartureTime().getDate() === date && flight.pilot.getFullName() === names;            
         });
-
-        // Return the length of the filtered array
-        return flightsForDate.length;
+        return flightsForDate.length; 
+    
+    }
+    getFlights(fullname:string):void{
+        this.getFlight().forEach(fli =>{
+           if(fli.pilot.getFullName()===fullname){
+            console.log(fli);
+           }
+            
+        })
     }
 }

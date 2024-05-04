@@ -81,7 +81,7 @@ export class Flight {
   getPilots(): Pilot{
     return this.pilot;
   }
-  getGate(): Gate | undefined {
+  getGate(): Gate {
     return this.gate;
   }
   removePassenger(passenger: Passanger): void {

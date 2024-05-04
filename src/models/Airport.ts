@@ -49,26 +49,30 @@ export class Airport {
     this.flights[flight.getFlightNumber()] = flight;
   }
 
-  getFlightByNumber(flightNumber: string): Flight | undefined {
+  getFlightByNumber(flightNumber: string): Flight {
     return this.flights[flightNumber];
   }
 
   assignGateToFlight(flightNumber: string, gate: Gate): void {
     const flight = this.getFlightByNumber(flightNumber);
+    console.log(flight);
+    
     if (flight) {
       flight.assignGate(gate);
+      
     } else {
       console.log(`Flight ${flightNumber} not found.`);
     }
   }
 
-  getGateForFlight(flightNumber: string): Gate | undefined {
-    const flight = this.getFlightByNumber(flightNumber);
+  getGateForFlight(flightNumber: string): Gate {
+    const flight = this.getFlightByNumber(flightNumber);    
+    console.log(flight);
+    
     if (flight) {
       return flight.getGate();
     } else {
       console.log(`Flight ${flightNumber} not found.`);
-      return undefined;
     }
   }
 

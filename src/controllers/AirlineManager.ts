@@ -20,7 +20,7 @@ export class AirlineManager extends Employee{
         for (let employee of this.employees){
             totalSalary += parseInt(employee.getSalary());
         }
-        return totalSalary;
+        return "Salary Employees : "+totalSalary+"$";
     }
     public getReturnPassengerCount(flightNumber: string): number {
         let returnPassengerCount = 0;

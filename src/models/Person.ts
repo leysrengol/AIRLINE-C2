@@ -9,7 +9,7 @@ export abstract class Person{
         this.gender = gender;
     }
     getFullName(){
-        return this.firstName+'  '+ this.lastName;
+        return this.firstName+' '+ this.lastName;
     }
     getFirstName(){
         return this.firstName;
